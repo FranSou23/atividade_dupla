@@ -32,6 +32,7 @@
           <th>Tipo</th>
           <th>Descricão</th>
           <th>Preço</th>
+          <th>Imagem</th>
           <th colspan="2">Ação</th>
         </tr>
       </thead>
@@ -49,16 +50,19 @@
         <td><?= $umaTarefa['Tipo'];?></td>
         <td><?= $umaTarefa['Nome'];?></td>
         <td><?= $umaTarefa['Descricao'];?></td>
-        <td><?= $umaTarefa['Imagem'];?></td>
         <td><?= $umaTarefa['Preco'];?></td>
-
-        <td><a class="botao-editar" href="editar-produto.php">Editar</a></td>
+        <td><?= $umaTarefa['Imagem'];?></td>
+        
         <td>
-          <form>
-            <input type="button" class="botao-excluir" value="Excluir">
-          </form>
+          <a class="botao-editar" href="editar.php">Editar</a>
         </td>
         
+        <td>
+          <form>
+                <a  href="excluir.php?id=<?=$umaTarefa['id']?>" 
+                class="botao-excluir"onclick="return confirm('Tem certeza que deseja deletar este tarefa?')">Excluir</a>
+          </form>
+        </td>
         </td>
       </tr>
       </tbody>
