@@ -44,22 +44,22 @@
         $sql = "select * from produtos order by preco asc, id desc";
         $resultado = mysqli_query($conexao, $sql);
         
-        while($umaTarefa = mysqli_fetch_assoc($resultado)){
+        while($umProduto = mysqli_fetch_assoc($resultado)){
         ?>
 
-        <td><?= $umaTarefa['Tipo'];?></td>
-        <td><?= $umaTarefa['Nome'];?></td>
-        <td><?= $umaTarefa['Descricao'];?></td>
-        <td><?= $umaTarefa['Preco'];?></td>
-        <td><?= $umaTarefa['Imagem'];?></td>
+        <td><?= $umProduto['Tipo'];?></td>
+        <td><?= $umProduto['Nome'];?></td>
+        <td><?= $umProduto['Descricao'];?></td>
+        <td><?= $umProduto['Preco'];?></td>
+        <td><?= $umProduto['Imagem'];?></td>
         
         <td>
-          <a class="botao-editar" href="editar.php">Editar</a>
+          <a  href="editar.php?id=<?=$umProduto['id'];?>" class="botao-editar">Editar</a>
         </td>
         
         <td>
           <form>
-                <a  href="excluir.php?id=<?=$umaTarefa['id']?>" 
+                <a  href="excluir.php?id=<?=$umProduto['id']?>" 
                 class="botao-excluir"onclick="return confirm('Tem certeza que deseja deletar este tarefa?')">Excluir</a>
           </form>
         </td>
