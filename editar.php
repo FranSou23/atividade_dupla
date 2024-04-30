@@ -17,6 +17,17 @@
     <title>Serenatto - Editar Produto</title>
 </head>
 <body>
+<?php
+
+$id = $_GET["id"];
+
+$tipo = "";
+$nome = "";
+$descricao = "";
+$imagem = "";
+$preco = "";
+?>
+
 <main>
     <section class="container-admin-banner">
         <img src="img/logo-serenatto-horizontal.png" class="logo-admin" alt="logo-serenatto">
@@ -24,17 +35,8 @@
         <img class= "ornaments" src="img/ornaments-coffee.png" alt="ornaments">
     </section>
     <section class="container-form">
-        <form  method="POST" action="salvar-editar.php?id=<?=$id?>" >
-        
-        <?php
-
-            $id = $_GET["id"];
-
-            $tipo = "";
-            $nome = "";
-            $descricao = "";
-            $imagem = "";
-            $preco = "";
+        <form  method="POST" action="salvar-editar.php?id=<?=$id?>">
+ <?php
 
             include "conexao.php";
             $sql = "select * from produtos where id = $id";
@@ -44,8 +46,7 @@
                 $nome = $umProduto ['Nome'];
                 $descricao = $umProduto ['Descricao'];
                 $imagem = $umProduto ['Imagem'];
-                $preco = $umProduto ['Preco']; 
-                
+                $preco = $umProduto ['Preco'];       
 } 
 ?>
 
@@ -53,15 +54,19 @@
             <label for="nome">Nome</label>
             <input value="<?=$nome?>" type="text" id="nome" name="nome" placeholder="Digite o nome do produto" required>
             <div class="container-radio">
-                <div>
-                    <label for="cafe">Café</label>
-                    <input  type="radio" id="cafe" name="tipo" value="Café" checked>
-                </div>
-                <div>
-                    <label for="almoco">Almoço</label>
-                    <input type="radio" id="almoco" name="tipo" value="Almoço">
-                </div>
             
+            
+                <?php if($tipo == "Café"):?>
+                    <input  type="radio"   name="tipo" value="Café" checked><label for="cafe">Café</label>
+                    <input type="radio"  name="tipo" value="Almoço"><label for="cafe">Almoço</label>
+                <?php endif; ?>
+                    
+          <?php if($tipo == "Almoço"):?>
+              <input  type="radio"  name="tipo" value="Almoço" checked> <label for="cafe">Almoço</label>
+              <input type="radio"  name="tipo" value="Café"> <label for="cafe">Café</label>
+         <?php endif; ?>
+              
+            </div> 
             <label for="descricao">Descrição</label>
             <input value="<?=$descricao?>" type="text" id="descricao" name="descricao" placeholder="Digite uma descrição" required>
 
@@ -71,11 +76,11 @@
             <label for="imagem">Envie uma imagem do produto</label>
             <input value="<?=$imagem?>" type="file" name="imagem" accept="image/*" id="imagem" placeholder="Envie uma imagem">
 
-            <input type="submit" name="cadastro" class="botao-cadastrar" value="Editar produto"/>
-            <a href="salvar-editar.php?id=<?=$umProduto['id']?>"></a>
+            <input type="submit" name="cadastro" value="Editar produto" class="botao-cadastrar"/>
         </form>
     
     </section>
+
 </main>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>

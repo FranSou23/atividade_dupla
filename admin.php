@@ -28,8 +28,8 @@
     <table>
       <thead>
         <tr>
-          <th>Produto</th>
           <th>Tipo</th>
+          <th>Produto</th>
           <th>Descricão</th>
           <th>Preço</th>
           <th>Imagem</th>
