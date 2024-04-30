@@ -60,6 +60,7 @@
                     <p>Café gelado refrescante, adoçado e com notas sutis de baunilha ou caramelo.</p>
                     <p>R$ 3.00</p>
                 </div>
+                
             </div>
         </section>
         <section class="container-almoco">
@@ -99,7 +100,9 @@
                     <p>Fettuccine</p>
                     <p>Prato italiano autêntico da massa do fettuccine com peito de frango grelhado</p>
                     <p>R$ 22.50</p>
+                    
                 </div>
+                
             </div>
 
         </section>
