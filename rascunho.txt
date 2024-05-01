@@ -1,0 +1,9 @@
+<div class="container-almoco-produtos">
+                <div class="container-produto">
+                    <div class="container-foto">
+                        <img src="img/bife.jpg">
+                    </div>
+                    <p>Bife</p>
+                    <p>Bife, arroz com feijão e uma deliciosa batata frita</p>
+                    <p>R$ 27.90</p>
+                </div>
